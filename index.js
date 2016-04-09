@@ -24,8 +24,10 @@ usernamePrompt(cache.getItem('username'))
 .then((channel) => {
 	pickedChannel = _.find(onlineChannels, { name: channel });
 })
+.then(() => cache.getItem('quality'))
 .then(qualityPrompt)
 .then((quality) => {
+	cache.setItem('quality', quality);
 	pickedQuality = quality;
 })
 .then(() => {

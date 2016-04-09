@@ -42,13 +42,13 @@ export function channelPrompt(onlineChannels) {
 	});
 }
 
-export function qualityPrompt() {
+export function qualityPrompt(quality) {
 	return new Promise((resolve) => {
 		inquirer.prompt([{
 			type: 'input',
 			name: 'quality',
 			message: 'Which quality do you want?',
-			default: 'best',
+			default: quality || 'best',
 		}],
 		(answers) => {
 			resolve(answers.quality);
