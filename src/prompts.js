@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import _ from 'lodash';
+import chalk from 'chalk';
 
 import debug from './debug';
 
@@ -18,7 +19,14 @@ export function usernamePrompt(defaultValue) {
 }
 
 export function channelPrompt(onlineChannels) {
-	const choices = _.map(onlineChannels, 'name');
+	const choices = _.chain(onlineChannels)
+	.map((channel) => ({
+		name: `${chalk.inverse(channel.name)} - ${chalk.gray(channel.status)} [${channel.game}]`,
+		value: `${channel.name}`,
+	}))
+	.sortBy(['value'])
+	.value();
+
 	debug(`Channel Prompt ${JSON.stringify(choices)}`);
 
 	return new Promise((resolve) => {

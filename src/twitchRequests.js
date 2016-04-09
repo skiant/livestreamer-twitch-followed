@@ -60,6 +60,8 @@ export function filterOfflineChannels(channels) {
 				.map((stream) => ({
 					name: stream.channel.name,
 					url: stream.channel.url,
+					status: stream.channel.status,
+					game: stream.channel.game,
 				}))
 				.value();
 				debug(JSON.stringify(liveStreams));
