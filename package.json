@@ -1,6 +1,6 @@
 {
   "name": "livestreamer-twitch-followed",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool to start Livestreamer on a live channel you follow on Twitch",
   "main": "index.js",
   "scripts": {
@@ -11,8 +11,7 @@
   },
   "author": "Mathieu Dubois",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.6.5",
     "babel-loader": "^6.2.4",
