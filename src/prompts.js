@@ -17,13 +17,16 @@ export function usernamePrompt(defaultValue) {
 }
 
 export function channelPrompt(onlineChannels) {
-	const choices = _.chain(onlineChannels)
-	.map((channel) => ({
-		name: `${chalk.inverse(channel.name)} - ${chalk.gray(channel.status)} [${channel.game}]`,
-		value: `${channel.name}`,
-	}))
-	.sortBy(['value'])
-	.value();
+	const choices = _.sortBy(
+		_.map(
+			onlineChannels,
+			(channel) => ({
+				name: `${chalk.inverse(channel.name)} - ${chalk.gray(channel.status)} [${channel.game}]`,
+				value: `${channel.name}`,
+			})
+		),
+		['value']
+	);
 
 	return new Promise((resolve) => {
 		inquirer.prompt([{

@@ -48,14 +48,14 @@ export function filterOfflineChannels(channels) {
 		);
 		https.get(options, (res) => {
 			parseBody(res).then((body) => {
-				const liveStreams = _.chain(body.streams)
-				.map((stream) => ({
-					name: stream.channel.name,
-					url: stream.channel.url,
-					status: stream.channel.status,
-					game: stream.channel.game,
-				}))
-				.value();
+				const liveStreams = _.map(body.streams,
+					(stream) => ({
+						name: stream.channel.name,
+						url: stream.channel.url,
+						status: stream.channel.status,
+						game: stream.channel.game,
+					})
+				);
 				resolve(liveStreams);
 			});
 		});
