@@ -1,4 +1,4 @@
-# twitch_cli
+# livestreamer-twitch-followed
 CLI app to start [livestreamer](http://docs.livestreamer.io/) on a live stream you follow
 
 `git clone`, `npm install`, `npm start`.
