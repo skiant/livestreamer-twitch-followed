@@ -15,7 +15,7 @@ module.exports = {
 		],
 	},
 	plugins: [
-		new webpack.BannerPlugin('#!/usr/bin/env node'),
+		new webpack.BannerPlugin('#!/usr/bin/env node', { raw: true }),
 	],
 	node: {
 		fs: 'empty',
