@@ -1,7 +1,7 @@
 # livestreamer-twitch-followed
 CLI app to start [livestreamer](http://docs.livestreamer.io/) on a live stream you follow
 
-`git clone`, `npm install`, `npm start`.
+Install it globally with `npm install -g livestreamer-twitch-followed`, then use `lstf` to start it.
 
 
 :warning: Livestreamer is required for this to have any effect :warning:
