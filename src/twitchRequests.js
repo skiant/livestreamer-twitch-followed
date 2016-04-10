@@ -1,8 +1,6 @@
 import https from 'https';
 import _ from 'lodash';
 
-import debug from './debug';
-
 const requestOptions = {
 	protocol: 'https:',
 	host: 'api.twitch.tv',
@@ -20,15 +18,12 @@ function parseBody(res) {
 		});
 
 		res.on('end', () => {
-			debug('body parsed');
 			resolve(JSON.parse(body));
 		});
 	});
 }
 
 export function getFollowedChannels(username) {
-	debug(`Grabbing followed channels for ${username}`);
-
 	return new Promise((resolve, reject) => {
 		const options = _.extend(
 			{ path: `/kraken/users/${username}/follows/channels?limit=100&sortby=last_broadcast` },
@@ -37,7 +32,6 @@ export function getFollowedChannels(username) {
 		https.get(options, (res) => {
 			parseBody(res).then((body) => {
 				const followedChannels = _.map(body.follows, 'channel.name');
-				debug(followedChannels);
 				resolve(followedChannels);
 			});
 		}).on('error', (e) => {
@@ -47,8 +41,6 @@ export function getFollowedChannels(username) {
 }
 
 export function filterOfflineChannels(channels) {
-	debug(`Filtering channel list ${channels}`);
-
 	return new Promise((resolve) => {
 		const options = _.extend(
 			{ path: `/kraken/streams/?channel=${channels.join(',')}` },
@@ -64,7 +56,6 @@ export function filterOfflineChannels(channels) {
 					game: stream.channel.game,
 				}))
 				.value();
-				debug(JSON.stringify(liveStreams));
 				resolve(liveStreams);
 			});
 		});

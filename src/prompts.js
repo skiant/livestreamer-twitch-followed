@@ -2,8 +2,6 @@ import inquirer from 'inquirer';
 import _ from 'lodash';
 import chalk from 'chalk';
 
-import debug from './debug';
-
 export function usernamePrompt(defaultValue) {
 	return new Promise((resolve) => {
 		inquirer.prompt([{
@@ -26,8 +24,6 @@ export function channelPrompt(onlineChannels) {
 	}))
 	.sortBy(['value'])
 	.value();
-
-	debug(`Channel Prompt ${JSON.stringify(choices)}`);
 
 	return new Promise((resolve) => {
 		inquirer.prompt([{
