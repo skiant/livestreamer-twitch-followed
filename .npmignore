@@ -1,6 +1,7 @@
 .babelrc
 .eslintrc
 .gitignore
+.eslintignore
 webpack.config.js
 node_modules/
 src/
