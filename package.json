@@ -1,6 +1,6 @@
 {
   "name": "livestreamer-twitch-followed",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CLI tool to start Livestreamer on a live channel you follow on Twitch",
   "main": "index.js",
   "scripts": {
