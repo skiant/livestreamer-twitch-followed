@@ -16,6 +16,7 @@ module.exports = {
 	},
 	plugins: [
 		new webpack.BannerPlugin('#!/usr/bin/env node', { raw: true }),
+		new webpack.optimize.DedupePlugin(),
 	],
 	node: {
 		fs: 'empty',

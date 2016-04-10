@@ -1,4 +1,6 @@
 {
 	"plugins": ["lodash"],
-	"presets": ["node"]
+	"presets": ["node"],
+	"compact": true,
+	"comments": false
 }
