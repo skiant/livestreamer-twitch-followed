@@ -1,9 +1,14 @@
 {
   "name": "livestreamer-twitch-followed",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "A CLI tool to start Livestreamer on a live channel you follow on Twitch",
   "repository": "https://github.com/skiant/livestreamer-twitch-followed.git",
-  "keywords": ["twitch", "twitch.tv", "livestreamer", "cli"],
+  "keywords": [
+    "twitch",
+    "twitch.tv",
+    "livestreamer",
+    "cli"
+  ],
   "main": "index.js",
   "scripts": {
     "start": "node_modules/.bin/babel-node index",
