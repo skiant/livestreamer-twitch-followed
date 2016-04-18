@@ -32,4 +32,7 @@ usernamePrompt(cache.getItem('username'))
 })
 .then(() => {
 	childProcess.spawn('livestreamer', [pickedChannel.url, pickedQuality], { stdio: 'inherit' });
+})
+.catch((e) => {
+	console.log(e);
 });
