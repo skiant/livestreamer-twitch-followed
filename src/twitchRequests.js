@@ -10,15 +10,20 @@ const requestOptions = {
 };
 
 function parseBody(res) {
-	return new Promise((resolve) => {
+	return new Promise((resolve, reject) => {
 		let body = '';
+
 
 		res.on('data', (chunk) => {
 			body += chunk;
 		});
 
 		res.on('end', () => {
-			resolve(JSON.parse(body));
+			if (res.statusCode > 300) {
+				reject(JSON.parse(body));
+			} else {
+				resolve(JSON.parse(body));
+			}
 		});
 	});
 }
@@ -33,6 +38,8 @@ export function getFollowedChannels(username) {
 			parseBody(res).then((body) => {
 				const followedChannels = _.map(body.follows, 'channel.name');
 				resolve(followedChannels);
+			}, (e) => {
+				reject(e);
 			});
 		}).on('error', (e) => {
 			reject(e);
