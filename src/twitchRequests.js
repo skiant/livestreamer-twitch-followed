@@ -6,6 +6,7 @@ const requestOptions = {
 	host: 'api.twitch.tv',
 	headers: {
 		Accept: 'application/vnd.twitchtv.v3+json',
+		'Client-ID': 'h9g2k6xfh4q7dun5ic9yufitv41thau',
 	},
 };
 
