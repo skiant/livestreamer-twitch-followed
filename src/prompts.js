@@ -20,12 +20,12 @@ export function channelPrompt(onlineChannels) {
 	const choices = _.sortBy(
 		_.map(
 			onlineChannels,
-			(channel) => ({
+			channel => ({
 				name: `${chalk.inverse(channel.name)} - ${chalk.gray(channel.status)} [${channel.game}]`,
 				value: `${channel.name}`,
-			})
+			}),
 		),
-		['value']
+		['value'],
 	);
 
 	return new Promise((resolve) => {

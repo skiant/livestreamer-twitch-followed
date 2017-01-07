@@ -2,8 +2,9 @@
   "env": {
     "node": true
   },
-  "extends": "airbnb",
+  "extends": "airbnb-base",
   "rules": {
-      "indent": ["error", "tab"]
+      "indent": ["error", "tab"],
+      "no-tabs": "off"
     }
 }

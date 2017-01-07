@@ -33,7 +33,7 @@ export function getFollowedChannels(username) {
 	return new Promise((resolve, reject) => {
 		const options = _.extend(
 			{ path: `/kraken/users/${username}/follows/channels?limit=100&sortby=last_broadcast` },
-			requestOptions
+			requestOptions,
 		);
 		https.get(options, (res) => {
 			parseBody(res).then((body) => {
@@ -52,17 +52,17 @@ export function filterOfflineChannels(channels) {
 	return new Promise((resolve) => {
 		const options = _.extend(
 			{ path: `/kraken/streams/?channel=${channels.join(',')}` },
-			requestOptions
+			requestOptions,
 		);
 		https.get(options, (res) => {
 			parseBody(res).then((body) => {
 				const liveStreams = _.map(body.streams,
-					(stream) => ({
+					stream => ({
 						name: stream.channel.name,
 						url: stream.channel.url,
 						status: stream.channel.status,
 						game: stream.channel.game,
-					})
+					}),
 				);
 				resolve(liveStreams);
 			});
