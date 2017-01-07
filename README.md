@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/skiant/livestreamer-twitch-followed.svg?branch=master)](https://travis-ci.org/skiant/livestreamer-twitch-followed)
+
 # livestreamer-twitch-followed
 CLI app to start [livestreamer](http://docs.livestreamer.io/) on a live stream you follow
 
