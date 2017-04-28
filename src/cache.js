@@ -11,7 +11,7 @@ const cacheFilePath = path.join(getUserHome(), '.twcli');
 // Delete legacy format files
 function deleteCacheFile(fileName) {
 	const filePath = path.resolve(cacheFilePath, fileName);
-	if (fs.statSync(filePath)) {
+	if (fs.existsSync(filePath)) {
 		fs.unlinkSync(filePath);
 	}
 }
