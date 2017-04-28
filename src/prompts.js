@@ -3,17 +3,13 @@ import _ from 'lodash';
 import chalk from 'chalk';
 
 export function usernamePrompt(defaultValue) {
-	return new Promise((resolve) => {
-		inquirer.prompt([{
-			type: 'input',
-			name: 'twitchUsername',
-			message: 'What\'s your twitch username?',
-			default: defaultValue || null,
-		}],
-		(answers) => {
-			resolve(answers.twitchUsername);
-		});
-	});
+	return inquirer.prompt([{
+		type: 'input',
+		name: 'twitchUsername',
+		message: 'What\'s your twitch username?',
+		default: defaultValue || null,
+	}])
+	.then(answers => answers.twitchUsername);
 }
 
 export function channelPrompt(onlineChannels) {
@@ -28,29 +24,21 @@ export function channelPrompt(onlineChannels) {
 		['value'],
 	);
 
-	return new Promise((resolve) => {
-		inquirer.prompt([{
-			type: 'list',
-			name: 'channel',
-			message: 'Which channel do you want to watch?',
-			choices,
-		}],
-		(answers) => {
-			resolve(answers.channel);
-		});
-	});
+	return inquirer.prompt([{
+		type: 'list',
+		name: 'channel',
+		message: 'Which channel do you want to watch?',
+		choices,
+	}])
+	.then(answers => answers.channel);
 }
 
 export function qualityPrompt(quality) {
-	return new Promise((resolve) => {
-		inquirer.prompt([{
-			type: 'input',
-			name: 'quality',
-			message: 'Which quality do you want?',
-			default: quality || 'best',
-		}],
-		(answers) => {
-			resolve(answers.quality);
-		});
-	});
+	return inquirer.prompt([{
+		type: 'input',
+		name: 'quality',
+		message: 'Which quality do you want?',
+		default: quality || 'best',
+	}])
+	.then(answers => answers.quality);
 }
