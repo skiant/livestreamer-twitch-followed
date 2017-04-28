@@ -3,19 +3,17 @@ const webpack = require('webpack');
 module.exports = {
 	entry: './index.js',
 	output: {
-		path: './bin/',
+		path: `${__dirname}/bin`,
 		filename: 'cli.js',
 	},
 	module: {
-		preLoaders: [
-			{ test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader' },
-		],
-		loaders: [
-			{ test: /\.js$/, loader: 'babel' },
+		rules: [
+			{ test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader', enforce: 'pre' },
+			{ test: /\.js$/, loader: 'babel-loader' },
 		],
 	},
 	plugins: [
-		new webpack.BannerPlugin('#!/usr/bin/env node', { raw: true }),
+		new webpack.BannerPlugin({ banner: '#!/usr/bin/env node', raw: true }),
 		new webpack.optimize.DedupePlugin(),
 	],
 	node: {
