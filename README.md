@@ -1,23 +1,15 @@
-[![Build Status](https://travis-ci.org/skiant/livestreamer-twitch-followed.svg?branch=master)](https://travis-ci.org/skiant/livestreamer-twitch-followed)
+livestreamer-twitch-followed
+============================
 
-# livestreamer-twitch-followed
-CLI app to start [livestreamer](http://docs.livestreamer.io/) on a live stream you follow
+CLI app to start livestreamer on a live stream you follow
 
-Install it globally with `npm install -g livestreamer-twitch-followed`, then use `lstf` to start it.
+[![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
+[![Version](https://img.shields.io/npm/v/livestreamer-twitch-followed.svg)](https://npmjs.org/package/livestreamer-twitch-followed)
+[![Downloads/week](https://img.shields.io/npm/dw/livestreamer-twitch-followed.svg)](https://npmjs.org/package/livestreamer-twitch-followed)
+[![License](https://img.shields.io/npm/l/livestreamer-twitch-followed.svg)](https://github.com/skiant/livestreamer-twitch-followed/blob/master/package.json)
 
-
-:warning: Livestreamer is required for this to have any effect :warning:
-
-If you just want a fast way to open up a Twitch channel in Livestreamer, I recommend you create an alias as demonstrated below.
-```bash
-function lst() {
-  if [ "$2" ]
-  then
-    quality=$2
-  else
-    quality="best"
-  fi
-
-  livestreamer twitch.tv/"$1" "$quality"
-}
-```
+<!-- toc -->
+# Usage
+<!-- usage -->
+# Commands
+<!-- commands -->
