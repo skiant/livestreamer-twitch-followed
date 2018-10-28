@@ -1,8 +1,8 @@
 import {Command, flags} from '@oclif/command'
 import {sync as ceSync} from 'command-exists'
 
-import {getUserName} from './prompts'
-import {GetFollowsForUserID, GetUserIDFromName} from './twitch-requests'
+import {getStreamToLaunch, getUserName} from './prompts'
+import {GetFollowsForUserID, GetStreamsFromUserNames, GetUserIDFromName} from './twitch-requests'
 
 class LivestreamerTwitchFollowed extends Command {
   static description = 'describe the command here'
@@ -43,8 +43,10 @@ class LivestreamerTwitchFollowed extends Command {
 
     const userId = await GetUserIDFromName(flags.user || promptedUser)
     const follows = await GetFollowsForUserID(userId)
+    const onlineStreams = await GetStreamsFromUserNames(follows)
+    const stream = await getStreamToLaunch(onlineStreams)
     // tslint:disable-next-line:no-console
-    console.log(JSON.stringify(follows))
+    console.log(JSON.stringify(stream))
   }
 }
 

@@ -35,7 +35,11 @@ export async function GetFollowsForUserID(userId: TwitchAPI.User['id']): Promise
 
 export async function GetStreamsFromUserNames(userNames: TwitchAPI.Stream['user_name'][]): Promise<TwitchAPI.Stream[]> {
   try {
-    const StreamsResponse = await twitchClient({url: `/streams/?user_login=${userNames.join(',')}`})
+    const StreamsResponse = await twitchClient({url: `/streams/?user_login=${userNames.join('&user_login=')}`})
+    // tslint:disable-next-line:no-console
+    console.log(`/streams/?user_login=${userNames.join('&user_login=')}`)
+    // tslint:disable-next-line:no-console
+    console.log(StreamsResponse)
     return StreamsResponse.data
   } catch (e) {
     throw(e)

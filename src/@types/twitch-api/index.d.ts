@@ -1,6 +1,10 @@
 export declare namespace TwitchAPI {
   interface ApiResponse<DataType> {
     data: DataType[];
+    total?: number;
+    pagination?: {
+      cursor: string;
+    };
   }
 
   type User = {
