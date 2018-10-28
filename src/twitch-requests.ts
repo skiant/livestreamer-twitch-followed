@@ -1,6 +1,6 @@
 import {defaults} from 'request-promise-native'
 
-import {TwitchAPI} from './twitch-responses'
+import {TwitchAPI} from './@types/twitch-api'
 
 const twitchClient = defaults({
   baseUrl: 'https://api.twitch.tv/helix/',

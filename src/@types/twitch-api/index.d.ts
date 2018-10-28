@@ -1,6 +1,4 @@
-import { string } from "@oclif/command/lib/flags";
-
-declare namespace TwitchAPI {
+export declare namespace TwitchAPI {
   interface ApiResponse<DataType> {
     data: DataType[];
   }

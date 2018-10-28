@@ -1,5 +1,7 @@
 import {Command, flags} from '@oclif/command'
+import {sync as ceSync} from 'command-exists'
 
+import {getUserName} from './prompts'
 import {GetFollowsForUserID, GetUserIDFromName} from './twitch-requests'
 
 class LivestreamerTwitchFollowed extends Command {
@@ -26,13 +28,17 @@ class LivestreamerTwitchFollowed extends Command {
   }
 
   async run() {
+    let command = ceSync('streamlink') ? 'streamlink' : ceSync('livestreamer') ? 'livestreamer' : null
+
+    if (!command) {
+      throw(new Error('streamlink or livestreamer could not be found'))
+    }
+
     const {flags} = this.parse(LivestreamerTwitchFollowed)
     let promptedUser = ''
 
     if (!flags.user) {
-      const prompt =
-
-      promptedUser = prompt.twitchUser
+      promptedUser = await getUserName()
     }
 
     const userId = await GetUserIDFromName(flags.user || promptedUser)
