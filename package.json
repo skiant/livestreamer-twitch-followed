@@ -15,7 +15,7 @@
     "command-exists": "^1.2.8",
     "inquirer": "^6.2.0",
     "request": "^2.88.0",
-    "request-promise-native": "^1.0.5",
+    "request-promise-native": "^1.0.6",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
