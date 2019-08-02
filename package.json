@@ -19,7 +19,7 @@
     "tslib": "^1.9.3"
   },
   "devDependencies": {
-    "@oclif/test": "^1.2.2",
+    "@oclif/test": "^1.2.5",
     "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4.1.6",
     "@types/inquirer": "0.0.44",
