@@ -21,7 +21,7 @@
   "devDependencies": {
     "@oclif/test": "^1.2.2",
     "@oclif/tslint": "^3.1.1",
-    "@types/chai": "^4.1.6",
+    "@types/chai": "^4.2.8",
     "@types/inquirer": "0.0.44",
     "@types/mocha": "^5.2.5",
     "@types/node": "^11.9.0",
